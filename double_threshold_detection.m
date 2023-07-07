@@ -19,8 +19,8 @@ Phase=atan2(i,r);
 
 4: stimulus detection
 if i50>flag  % Delay flag
-if inRangePhasepeak(Phase(496)) % phase judgment for peak stimulus
-    if inRangeamppeak(ex(496)) % Threshold judgment for amplitude
+if find(inRangePhasepeak(Phase(495:497)),1) % phase judgment for peak stimulus
+    if find(inRangeamppeak(ex(495:497)),1) % Threshold judgment for amplitude
     fprintf(DG2000, ':SOUR1:BURS:TRIG' ); % Trigger 
 flag=i50+4; % Delay 100ms for next detection
 end
