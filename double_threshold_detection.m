@@ -1,4 +1,5 @@
 % pseudo code:
+% the data update section is omitted.
 
 1:initial
 
