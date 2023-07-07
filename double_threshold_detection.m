@@ -1,4 +1,4 @@
-pseudo code:
+% pseudo code:
 
 1:initial
 
