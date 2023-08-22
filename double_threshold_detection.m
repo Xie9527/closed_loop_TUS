@@ -3,11 +3,17 @@
 
 1:initial
 
-2:initial: Set threshold
+2:initial:
+2.1:Set threshold
 inRangePhasepeak = @(x)((x>-0.7)&(x<-0.03));  % Phase range of peak stimulation
 inRangeamppeak = @(x)(x>2);   % Amplitude threshold for peak stimulation
 inRangePhasetrough = @(x)(x>2.5)|(x<-3);   % Phase range of trough stimulation
 inRangeamptrough = @(x)(x<-2);   % Amplitude threshold for trough stimulation
+2.2:Set Filter
+N    = 826;Fc1  = 4;Fc2  = 12;Fs=500;
+flag = 'scale';win = hamming(N+1); 
+b1  = fir1(N, [Fc1 Fc2]/(Fs/2), 'bandpass', win, flag); 
+filter4_12 = dfilt.dffir(b1); 
 
 3: data processing 
 theta0=filter(filter4_12, [LFP;zeros(413,1)+LFP(end)]); 
