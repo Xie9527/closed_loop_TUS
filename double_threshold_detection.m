@@ -10,7 +10,7 @@ inRangePhasetrough = @(x)(x>2.5)|(x<-3);   % Phase range of trough stimulation
 inRangeamptrough = @(x)(x<-2);   % Amplitude threshold for trough stimulation
 
 3: data processing 
-theta0=filter(filter4_12, [flip(LFP);zeros(220,1)+LFP(end)]); 
+theta0=filter(filter4_12, [flip(LFP);zeros(413,1)+LFP(end)]); 
 theta= theta0 (221:end);  % zero phase filtering
 z1 = hilbert(theta0);
 r=real(z1);
@@ -22,8 +22,8 @@ if i50>flag  % Delay flag
 if find(inRangePhasepeak(Phase(495:497)),1) % phase judgment for peak stimulus
     if find(inRangeamppeak(ex(495:497)),1) % Threshold judgment for amplitude
     fprintf(DG2000, ':SOUR1:BURS:TRIG' ); % Trigger 
-flag=i50+4; % Delay 100ms for next detection
-end
+    flag=i50+4; % Delay 100ms for next detection
+    end
 end
 end
 
