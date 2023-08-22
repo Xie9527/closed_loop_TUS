@@ -16,7 +16,7 @@ b1  = fir1(N, [Fc1 Fc2]/(Fs/2), 'bandpass', win, flag);
 filter4_12 = dfilt.dffir(b1); 
 
 3: data processing 
-theta0=filter(filter4_12, [LFP;zeros(413,1)+LFP(end)]); 
+theta0=filter(filter4_12, [LFP;zeros(413,1)]); 
 theta= theta0 (414:end);  % zero phase filtering
 z1 = hilbert(theta);
 r=real(z1);
