@@ -10,9 +10,9 @@ inRangePhasetrough = @(x)(x>2.5)|(x<-3);   % Phase range of trough stimulation
 inRangeamptrough = @(x)(x<-2);   % Amplitude threshold for trough stimulation
 
 3: data processing 
-theta0=filter(filter4_12, [flip(LFP);zeros(413,1)+LFP(end)]); 
+theta0=filter(filter4_12, [LFP;zeros(413,1)+LFP(end)]); 
 theta= theta0 (414:end);  % zero phase filtering
-z1 = hilbert(theta0);
+z1 = hilbert(theta);
 r=real(z1);
 i=imag(z1);
 Phase=atan2(i,r);
